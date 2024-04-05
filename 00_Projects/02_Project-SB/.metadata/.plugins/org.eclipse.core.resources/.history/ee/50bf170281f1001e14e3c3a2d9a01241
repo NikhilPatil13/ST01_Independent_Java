@@ -1,0 +1,71 @@
+package com.medimeet.main.serviceImpl;
+
+
+import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Base64;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.medimeet.main.entities.User;
+import com.medimeet.main.enums.UserRoles;
+import com.medimeet.main.repository.UserRepository;
+import com.medimeet.main.serviceI.UserServiceI;
+
+@Service
+public class UserServiceImpl implements UserServiceI {
+
+	@Autowired
+	private UserRepository userRepository;
+	
+	Logger logger = Logger.getLogger(UserServiceImpl.class);
+	
+	
+	// blogic for saveUser request
+	@Override
+	public User saveUser(String request, MultipartFile profileImage) throws IOException {
+		ObjectMapper objectMapper = new ObjectMapper();
+		User user = objectMapper.readValue(request, User.class);
+		
+		
+		// check profileImage is null or not
+		if(profileImage != null && !profileImage.isEmpty()) {			
+			
+			InputStream inputStream = profileImage.getInputStream();
+			byte[] imageData = new byte[inputStream.available()];
+			inputStream.read(imageData);
+			
+			String base64Image = Base64.getEncoder().encodeToString(imageData);
+			
+			
+			user.setUserProfileImage(base64Image);
+			
+		}
+		
+		user.setIsPatient(false);
+		
+		user.setUserRole(UserRoles.PATIENT);
+		
+		
+		User savedUser = userRepository.save(user);
+		
+		
+		return savedUser;
+
+	
+		// Need to check is user already existed or not... if yes --> don't do duplicate registration  (on the basic of emailId)
+		
+		
+		
+	
+	}
+
+}

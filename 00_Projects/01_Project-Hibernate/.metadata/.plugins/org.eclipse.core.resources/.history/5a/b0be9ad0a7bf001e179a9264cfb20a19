@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.primaryPurple{
+	background : #6200EE
+}
+
+textarea::placeholder {
+    color: #999; /* Adjust color as needed */
+    opacity: 1;
+    visibility: visible;
+}

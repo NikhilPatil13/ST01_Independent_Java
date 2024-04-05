@@ -1,0 +1,31 @@
+package com.medimeet.main.helper;
+
+import java.time.LocalDate;
+import java.util.Random;
+import java.util.stream.IntStream;
+
+public class GenerateUsernameHelper {
+	
+	public String generateUsername() {
+		// we need to generate username in the format of YYYYMMDD{randomNumber}
+		
+		LocalDate localDate = LocalDate.now();
+		
+		int dayOfMonth = localDate.getDayOfMonth();
+		int monthValue = localDate.getMonthValue();
+		int year = localDate.getYear();
+		
+		// generate random number between 1 - 10000
+		Random random = new Random();
+
+		int nextInt = random.nextInt(10000);
+
+		System.out.println(nextInt);
+
+		
+		String dayOfMonthStr = ""+dayOfMonth+monthValue+year+random;
+		
+		return null;
+	}
+	
+}

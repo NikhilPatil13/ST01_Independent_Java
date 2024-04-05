@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.primaryPurple{
+	background : #6200EE
+}
+
+#noteContent::placeholder {
+    color: #999;
+}

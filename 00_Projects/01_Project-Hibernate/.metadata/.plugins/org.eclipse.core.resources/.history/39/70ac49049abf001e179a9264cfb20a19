@@ -1,0 +1,14 @@
+package com.notetaker.helper;
+
+import org.hibernate.SessionFactory;
+
+public class FactoryProvider {
+	public static SessionFactory factory;
+
+	public static SesionFactory getFactory()
+	{	
+		
+		return factory;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.notetaker.entities;
+
+public class Note {
+
+}
