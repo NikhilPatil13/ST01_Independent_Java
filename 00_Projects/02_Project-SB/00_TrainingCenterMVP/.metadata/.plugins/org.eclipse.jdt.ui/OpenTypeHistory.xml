@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=TrainingCenterRegistry/C:\/Users\/nrpat\/.m2\/repository\/org\/springframework\/data\/spring-data-commons\/3.2.5\/spring-data-commons-3.2.5.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-commons=/=/maven.version=/3.2.5=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.repository(CrudRepository.class[CrudRepository" modifiers="1537" timestamp="1712910163000"/>
+    <typeInfo handle="=TrainingCenterRegistry/C:\/Users\/nrpat\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/3.2.5\/spring-data-jpa-3.2.5.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/3.2.5=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.jpa.repository.support(CrudMethodMetadata.class[CrudMethodMetadata" modifiers="1537" timestamp="1712910327000"/>
+</typeInfoHistroy>
