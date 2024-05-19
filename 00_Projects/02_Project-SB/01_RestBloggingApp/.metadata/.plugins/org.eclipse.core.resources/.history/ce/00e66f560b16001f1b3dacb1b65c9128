@@ -1,0 +1,109 @@
+package com.restBloggingApp.main.serviceImpl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.restBloggingApp.main.dto.UserDTO;
+import com.restBloggingApp.main.entity.User;
+import com.restBloggingApp.main.exception.UserNotFoundException;
+import com.restBloggingApp.main.repo.UserRepository;
+import com.restBloggingApp.main.serviceI.UserServiceI;
+
+
+@Service
+public class UserServiceImpl implements UserServiceI {
+
+	@Autowired
+	UserRepository userRepository;
+	
+	@Override
+	public UserDTO addUser(UserDTO userDTO) {
+		
+		User savedUser = this.userRepository.save(this.userDtoToUser(userDTO));
+		
+		return this.userToUserDto(savedUser);
+	}
+	
+	
+	// blogic for getAllUsers()
+	@Override
+	public List<UserDTO> getAllUsers() {
+		// check is there any users in our database.
+		List<User> allUsersList = this.userRepository.findAll();
+		
+		// if users are not available then throw error
+		if(allUsersList.isEmpty()) {
+			throw new UserNotFoundException();
+		}
+		else {
+			// if users found
+			// need to convert user list into user dto list
+			List<UserDTO> userDtoList = new ArrayList<>;			
+			allUsersList.forEach(user->{
+				userDtoList.add(this.userToUserDto(user));
+			});
+		}
+		
+		return null;
+	}
+	
+	
+	
+	// blogic for updateUserById()
+	@Override
+	public UserDTO updateUserById(UserDTO userDto, Integer userId) {
+	
+		// need to find user using provided id. if available then do updation else throw error
+		Optional<User> userById = this.userRepository.findById(userId);
+		
+		if(userById.isEmpty()) {
+			// if not found
+			throw new UserNotFoundException();
+		}
+		else{
+			// if found then do updation
+			// need to convert userDto into user
+			User user = this.userDtoToUser(userDto);
+			
+			userById.get().setName(user.getName());
+			userById.get().setEmailId(user.getEmailId());
+			userById.get().setPassword(user.getPassword());
+			userById.get().setAbout(user.getAbout());
+			
+			
+			// to return we need an UserDTO --> convert user into userDto
+			UserDTO updatedUser = this.userToUserDto(user);
+			
+			return updatedUser;
+			
+		}
+	}
+	
+	
+	
+	// method to map UserDTO to User
+	private User userDtoToUser(UserDTO userDTO) {
+		User user = new User();
+		 
+		user.setName(userDTO.getName());
+		user.setEmailId(userDTO.getEmailId());
+		user.setPassword(userDTO.getPassword());
+		user.setAbout(userDTO.getAbout());
+		return user;
+	}
+	
+	// method to convert User to UserDTO
+	private UserDTO userToUserDto(User user) {
+		UserDTO userDTO = new UserDTO();
+		
+		userDTO.setName(user.getName());
+		userDTO.setEmailId(user.getEmailId());
+		userDTO.setPassword(user.getPassword());
+		userDTO.setAbout(user.getAbout());
+		
+		return userDTO;
+	}
+}

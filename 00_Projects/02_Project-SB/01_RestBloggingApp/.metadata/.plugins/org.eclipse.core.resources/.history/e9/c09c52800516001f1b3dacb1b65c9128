@@ -1,0 +1,10 @@
+package com.restBloggingApp.main.serviceI;
+
+import com.restBloggingApp.main.dto.UserDTO;
+
+public interface UserServiceI {
+
+	// declaration of method to add new user
+	UserDTO addUser(UserDTO userDTO);
+	
+}

@@ -1,0 +1,39 @@
+package com.restBloggingApp.main.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.restBloggingApp.main.dto.BaseResponse;
+import com.restBloggingApp.main.dto.UserDTO;
+import com.restBloggingApp.main.serviceI.UserServiceI;
+
+@RestController
+public class UserController {
+
+	@Autowired
+	UserServiceI userServiceI;
+	
+	// handler to handle add new user in database
+	@PostMapping(value="/add-user", consumes = "application/json")
+	public ResponseEntity<BaseResponse<UserDTO>> addUser(@RequestBody UserDTO userDTO){
+		
+		BaseResponse<UserDTO> baseResponse = new BaseResponse<>(201,"New User is added.",this.userServiceI.addUser(userDTO));
+		
+		return new ResponseEntity<>(baseResponse,HttpStatus.CREATED);	
+	}
+	
+	
+	// handler to handle edit user using ID in database
+	editUserById(user,userId){
+		
+		this.userServiceI.updateUserByIdI(user,userId);
+		
+		
+	}
+	
+	
+}

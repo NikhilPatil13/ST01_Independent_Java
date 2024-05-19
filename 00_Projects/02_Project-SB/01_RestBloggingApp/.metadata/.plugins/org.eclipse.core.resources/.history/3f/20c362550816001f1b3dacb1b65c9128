@@ -1,0 +1,20 @@
+package com.restBloggingApp.main.exceptionHandler;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+
+	@ExceptionHandler
+	ResponseEntity<String> handlerForUserNotFoundException(){
+		
+		return ResponseEntity<String>(404,"User Not Found!!!");
+		
+	}
+	
+	
+	
+}

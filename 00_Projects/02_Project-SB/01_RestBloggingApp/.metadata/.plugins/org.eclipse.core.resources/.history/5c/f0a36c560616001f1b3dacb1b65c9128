@@ -1,0 +1,5 @@
+package com.restBloggingApp.main.exception;
+
+public class UserNotFoundException {
+
+}

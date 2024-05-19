@@ -1,0 +1,20 @@
+package com.restBloggingApp.main.serviceI;
+
+import java.util.List;
+
+import com.restBloggingApp.main.dto.UserDTO;
+
+public interface UserServiceI {
+
+	// declaration of method to add new user
+	UserDTO addUser(UserDTO userDTO);
+	
+	// declaration of method to get all users
+	List<UserDTO> getAllUsers();
+	
+
+	// declaration of method to update user by using userId
+	UserDTO updateUserById(UserDTO userDto ,Integer userId);
+	
+	
+}
