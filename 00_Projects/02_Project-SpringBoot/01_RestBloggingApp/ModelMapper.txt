@@ -1,0 +1,25 @@
+ModelMapper :
+	- It is a library.
+	- used to map two objects with each other.
+	- to use we need to 
+		1) add dependency of ModelMapper in pom.xml
+		2) in main class
+			@Bean ---> to tell spring boot that u need to create object at runtime for this method.
+			public ModelMapper modelMapper(){
+				return new ModelMapper();
+			}
+		3) in that class where we want to use ModelMapper
+		
+			@Autowired
+			ModelMapper modelMapper; ---> to inject modelMapper dependency automatically
+			
+			
+			consider scenario, we need to convert User into UserDTO
+			modelMapper.map(source,destination);
+			
+			public UserDTO userToUserDTO(User user){
+				UserDTO userDTO = this.modelMapper.map(user,UserDTO.class);
+				return userDTO;
+			}
+			
+			NOTE : fields in User class must be same as fields in UserDTO class
