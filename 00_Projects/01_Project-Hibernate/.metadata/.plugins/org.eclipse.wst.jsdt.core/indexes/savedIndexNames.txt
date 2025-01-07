@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+D:\Educational\Java\01_Java_Nikhil_Patil\03_Frameworks\00_Projects\01_Project-Hibernate\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3883265978.index
-3750807007.index
-46265856.index
-467192348.index
-1819381783.index
-2909357159.index
-3506658192.index

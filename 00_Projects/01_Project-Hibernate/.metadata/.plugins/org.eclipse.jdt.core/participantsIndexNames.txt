@@ -1,5 +1,0 @@
-INDEX VERSION 1.131
-D:\Educational\Java\01_Java_Nikhil_Patil\03_Frameworks\00_Projects\01_Project-Hibernate\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3313333716.index
-\01_Notetaker\src\main\java
-D:\Educational\Java\01_Java_Nikhil_Patil\03_Frameworks\00_Projects\01_Project-Hibernate\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3883265978.index
-\01_Notetaker\src\main\resources

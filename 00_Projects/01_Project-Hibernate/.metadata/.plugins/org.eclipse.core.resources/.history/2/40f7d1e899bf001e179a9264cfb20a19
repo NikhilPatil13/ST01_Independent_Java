@@ -1,7 +1,0 @@
-package com.notetaker.helper;
-
-import org.hibernate.SessionFactory;
-
-public class FactoryProvider {
-	public static essionFactory factory;
-}
